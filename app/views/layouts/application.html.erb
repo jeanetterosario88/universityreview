@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReviewForum</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% if current_user.nil? %>
+      <%= link_to "Welcome", '/' %>
+      <%= link_to "Sign Up Here", "/users/new" %>
+      <%= link_to "Log In Here", "/sessions/new"%>
+    <% else %>
+      <%= link_to "Welcome", '/' %>
+      <%= current_user.username %>
+      <%= link_to "Universities",'/universities' %>
+      <%= link_to "Log Out", "/sessions", method: 'delete'%>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

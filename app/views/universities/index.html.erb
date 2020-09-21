@@ -1,0 +1,10 @@
+University List
+
+<% @universities.each do |university| %>
+    <%=  university.name %>
+    <%=  university.address %>
+    <%=  university.average_score %>
+<% end %>
+
+Don't see a University on this list?
+<%= link_to "Click Here to Add", '/universities/new' %>
