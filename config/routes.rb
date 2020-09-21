@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   get '/universities', to: 'universities#index'
   get 'universities/new', to: 'universities#new'
+  post '/universities', to: 'universities#create'
+
 end
