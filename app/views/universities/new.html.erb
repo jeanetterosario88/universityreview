@@ -1,0 +1,46 @@
+<%= form_for @university do |f| %>
+    <% if @university.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@university.errors.count, "error") %> prohibited this user from being saved:
+        </h2>
+  
+        <ul>
+        <% @university.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="form-group">
+      <%= f.label :name, "Name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+  
+    <div class="form-group">
+    <%= f.fields_for :addresses do |addr| %>
+        <%= addr.label :street_address_1 %>
+        <%= addr.text_field :street_address_1 %><br>
+     
+        <%= addr.label :street_address_2 %>
+        <%= addr.text_field :street_address_2 %><br>
+     
+        <%= addr.label :city %>
+        <%= addr.text_field :city %><br>
+     
+        <%= addr.label :state %>
+        <%= addr.text_field :state %><br>
+     
+        <%= addr.label :zipcode %>
+        <%= addr.text_field :zipcode %><br>
+      <% end %>
+    </div>
+  
+    <div class="actions">
+      <br>
+      <%= f.submit %>
+    </div>
+  
+  <% end %> 
