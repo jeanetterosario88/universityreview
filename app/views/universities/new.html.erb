@@ -1,23 +1,23 @@
-<%= form_for @university do |f| %>
+
+<%= form_for(@university) do |f| %>
     <% if @university.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@university.errors.count, "error") %> prohibited this user from being saved:
-        </h2>
-  
-        <ul>
-        <% @university.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  
-    <div class="form-group">
-      <%= f.label :name, "Name %>
-      <br>
-      <%= f.text_field :name %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@university.errors.count, "error") %> prohibited this user from being saved:
+      </h2>
+
+      <ul>
+      <% @university.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
+  <% end %>
+
+
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %></div>
   
     <div class="form-group">
     <%= f.fields_for :addresses do |addr| %>
@@ -35,12 +35,11 @@
      
         <%= addr.label :zipcode %>
         <%= addr.text_field :zipcode %><br>
+     
       <% end %>
-    </div>
   
+
     <div class="actions">
-      <br>
-      <%= f.submit %>
+      <%= f.submit class: "btn btn-primary" %>
     </div>
-  
   <% end %> 
