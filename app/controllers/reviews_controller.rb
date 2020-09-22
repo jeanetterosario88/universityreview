@@ -10,18 +10,18 @@ class ReviewsController < ApplicationController
     end
   
     def show
-      if params[:author_id]
-        @review = University.find(params[:author_id]).reviews.find(params[:id])
+      if params[:university_id]
+        @review = University.find(params[:university_id]).reviews.find(params[:id])
       else
         @review = Review.find(params[:id])
       end
     end
   
     def new
-      if params[:author_id] && !University.exists?(params[:author_id])
-        redirect_to authors_path, alert: "University not found."
+      if params[:university_id] && !University.exists?(params[:university_id])
+        redirect_to universitys_path, alert: "University not found."
       else
-        @review = Review.new(author_id: params[:author_id])
+        @review = Review.new(university_id: params[:university_id])
       end
     end
   
@@ -38,13 +38,13 @@ class ReviewsController < ApplicationController
     end
   
     def edit
-      if params[:author_id]
-        author = University.find_by(id: params[:author_id])
-        if author.nil?
-          redirect_to authors_path, alert: "University not found."
+      if params[:university_id]
+        university = University.find_by(id: params[:university_id])
+        if university.nil?
+          redirect_to universities_path, alert: "University not found."
         else
-          @review = author.reviews.find_by(id: params[:id])
-          redirect_to author_reviews_path(author) if @review.nil?
+          @review = university.reviews.find_by(id: params[:id])
+          redirect_to university_reviews_path(university) if @review.nil?
         end
       else
         @review = Review.find(params[:id])
