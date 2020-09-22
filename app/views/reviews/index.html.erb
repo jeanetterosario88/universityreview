@@ -1,4 +1,13 @@
 <h1>University Reviews</h1>
+
+<div>
+  <h3>Filter Reviews:</h3>
+  <%= form_tag("/reviews", method: "get") do %>
+    <%= select_tag "university", options_from_collection_for_select(@universities, "id", "name"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <% @reviews.each do |review| %>
   <div>
     <h2><%= review.title %></h2>

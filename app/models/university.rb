@@ -6,9 +6,7 @@ class University < ApplicationRecord
     validates :address, presence: true, length: { is: 5 } 
 
     def self.average_score
-        score_array = @university.reviews.collect do |review|
-                        review.score
-                      end
+        score_array = @university.reviews.collect { |review| review.score }
         score_sum = score_array.sum
         score_average = score_sum / score_array.size
     end
@@ -16,5 +14,6 @@ class University < ApplicationRecord
     def self.by_score
         @universities.sort! { |a,b| a.average_score <=> b.average_score}
     end
+
 
 end
