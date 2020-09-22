@@ -1,4 +1,4 @@
-<%= form_for @review do |f| %>
+<%= form_for [@university, @review] do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
         <h2>
