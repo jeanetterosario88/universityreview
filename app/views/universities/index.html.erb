@@ -1,5 +1,12 @@
 University List
 
+%= form_tag universities_path, method: :get do %>
+    2    <%= label_tag  "Search for a University by name:" %>
+    3    <%= text_field_tag :search, params[:search] %>
+    4    <%= submit_tag ‘Search’, name: nil %>
+    5  <% end %>
+    
+
 <% @universities.each do |university| %>
     <%=  university.name %>
     <%=  university.address %>

@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
 
     def index
-      if params[:author_id]
-        @reviews = University.find(params[:author_id]).reviews
+      @universities = University.all
+      if !params[:university].blank?
+        @reviews = Review.by_university(params[:university])
       else
         @reviews = Review.all
       end
