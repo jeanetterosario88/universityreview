@@ -14,30 +14,16 @@
     </div>
   <% end %>
 
-
     <div class="form-group">
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control" %></div>
-  
+    </div>
+
     <div class="form-group">
-    <%= f.fields_for :addresses do |addr| %>
-        <%= addr.label :street_address_1 %>
-        <%= addr.text_field :street_address_1 %><br>
-     
-        <%= addr.label :street_address_2 %>
-        <%= addr.text_field :street_address_2 %><br>
-     
-        <%= addr.label :city %>
-        <%= addr.text_field :city %><br>
-     
-        <%= addr.label :state %>
-        <%= addr.text_field :state %><br>
-     
-        <%= addr.label :zipcode %>
-        <%= addr.text_field :zipcode %><br>
-     
-      <% end %>
-  
+    <%= f.label "Zip Code" %><br>
+    <%= f.text_field :address, class: "form-control" %></div>
+  </div>
+
 
     <div class="actions">
       <%= f.submit class: "btn btn-primary" %>

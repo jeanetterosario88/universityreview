@@ -1,7 +1,7 @@
 class UniversitiesController < ApplicationController
 
     def index
-        @universities = University.all 
+        @universities = University.all
     end
 
     def new
@@ -9,21 +9,22 @@ class UniversitiesController < ApplicationController
     end
 
     def create
-        university = University.create(university_params)
-        redirect_to university_path
+     
+        if university = University.create(university_params)
+            redirect_to universities_path
+        else
+            render 'new'
+        end
     end
 
+    def show
+        @university= University.find_by(id: params[:id])
+    end
+
+    private
+
     def university_params
-        params.require(:university).permit(
-          :name,
-          addresses_attributes: [
-            :street_address_1,
-            :street_address_2,
-            :city,
-            :state,
-            :zipcode,
-          ]
-        )
+        params.require(:university).permit(:name, :address)
       end
 
 end
