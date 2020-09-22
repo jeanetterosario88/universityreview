@@ -19,16 +19,17 @@ class ReviewsController < ApplicationController
   
     def new
       if params[:university_id] && !University.exists?(params[:university_id])
-        redirect_to universitys_path, alert: "University not found."
+        redirect_to universities_path, alert: "University not found."
       else
         @review = Review.new(university_id: params[:university_id])
       end
     end
   
     def create
-      @review = Review.new(review_params)
-      @review.save
-      redirect_to review_path(@review)
+      puts review_params
+      @review = Review.new(review_params) 
+      @review.save!
+      redirect_to university_review_path(@review.university.id, @review.id)
     end
   
     def update
@@ -54,7 +55,12 @@ class ReviewsController < ApplicationController
     private
   
     def review_params
-      params.require(:review).permit(:title, :content, :score)
+      params.require(:review).permit(:title, :content, :score).merge(
+        {
+          university_id: params[:university_id], 
+          user_id: session[:user_id]
+        }
+      )
     end
   end
   

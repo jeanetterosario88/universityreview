@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/sessions/', to: 'sessions#destroy'
 
   resources :universities, only: %i[show new index create]  do
-    resources :reviews, only: %i[show index new create delete]
+    resources :reviews, only: %i[show index new update create delete]
   end
 
 

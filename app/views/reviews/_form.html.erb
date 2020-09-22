@@ -1,7 +1,7 @@
-<%= form_for(@review) do |f| %>
-  <%= university_id_field(@review) %>
+<%= form_for @review do |f| %>
+  
   <br>
-  <label>Review title:</label><br>
+  <label>Review Title:</label><br>
   <%= f.text_field :title %><br>
 
   <label>Review Content</label><br>
