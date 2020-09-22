@@ -1,4 +1,4 @@
-<h1>University Reviews</h1>
+<h3>University Reviews</h3>
 
 <div>
   <h3>Filter Reviews:</h3>
@@ -11,10 +11,9 @@
 <% @reviews.each do |review| %>
   <div>
     <h2><%= review.title %></h2>
-    <h3>by: <%= link_to review.author.name, author_reviews_path(review.author) %></h3>
-    <p><%= review.description %></p>
+    <h3>by: <%= link_to review.university.name, university_reviews_path(review.author) %></h3>
+    <p><%= review.content %></p>
   </div>
 <% end %>
 
-<%= link_to "Click Here to Add", '/reviews/new' %>
-
+<%= link_to "Click Here to Add", new_review_path %>

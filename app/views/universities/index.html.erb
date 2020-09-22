@@ -5,8 +5,9 @@
     <h4>
     "Name": <%=  university.name %><br>
     "Zip Code": <%=  university.address %><br>
+    <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
     </h4>
 <% end %>
 
 Don't see a University on this list?
-<%= link_to "Click Here to Add", '/universities/new' %>
+<%= link_to "Click Here to Add One", universities_new_path %>
