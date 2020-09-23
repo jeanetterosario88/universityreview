@@ -1,6 +1,6 @@
 <h4>
-"Name": <%=  @university.name %><br>
-"Zip Code": <%=  @university.address %>
-<%= link_to "Click Here to See Reviews", universities_reviews(@university) %>
+Name: <%=  @university.name %><br>
+Zip Code: <%=  @university.address %><br>
+<%= link_to "Click Here to See Reviews", university_reviews_path(@university) %>
 
-</h4>r
+</h4>

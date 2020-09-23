@@ -1,8 +1,8 @@
-<h3>University Reviews</h3>
+<h2>University Reviews</h2>
 
 <% @reviews.each do |review| %>
   <div>
-    <h2>Title: <%= review.title %></h2>
+    <h3>Title: <%= review.title %></h3>
     <h3>by: <%= review.user.username %></h3>
     <p>Content: <%= review.content %></p>
     <p>Score: <%= review.score %></p>
