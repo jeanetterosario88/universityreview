@@ -21,8 +21,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
-# Use Active Storage variant
+# Use Active Stsorage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb

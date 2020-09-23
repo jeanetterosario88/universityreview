@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/sessions/', to: 'sessions#destroy'
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
   resources :universities, only: %i[show new index create]  do
     resources :reviews, only: %i[show index new edit update create delete]
   end
