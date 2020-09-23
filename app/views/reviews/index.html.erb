@@ -1,18 +1,11 @@
 <h3>University Reviews</h3>
 
-<div>
-  <h3>Filter Reviews:</h3>
-  <%= form_tag("/reviews", method: "get") do %>
-    <%= select_tag "university", options_from_collection_for_select(@universities, "id", "name"), include_blank: true %>
-    <%= submit_tag "Filter" %>
-  <% end %>
-</div>
-
 <% @reviews.each do |review| %>
   <div>
-    <h2><%= review.title %></h2>
-    <h3>by: <%= link_to review.university.name, university_reviews_path(review.user) %></h3>
-    <p><%= review.content %></p>
+    <h2>Title: <%= review.title %></h2>
+    <h3>by: <%= review.user.username %></h3>
+    <p>Content: <%= review.content %></p>
+    <p>Score: <%= review.score %></p>
   </div>
 <% end %>
-<%= link_to "Click Here to Add", new_review_path %>
+<%= link_to "Click Here to Add", new_university_review_path %>

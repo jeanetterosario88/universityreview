@@ -1,12 +1,7 @@
 class ReviewsController < ApplicationController
 
     def index
-      @universities = University.all
-      if !params[:university].blank?
-        @reviews = Review.by_university(params[:university])
-      else
-        @reviews = Review.all
-      end
+      @reviews = Review.by_university(params[:university_id])
     end
   
     def show
