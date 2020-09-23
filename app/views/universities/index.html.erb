@@ -9,7 +9,7 @@
     <% if university.reviews.size == 0 %>
         To Be Scored
     <% else %>
-        <%= university.reviews.collect { |review| review.score}.sum.to_f / university.reviews.size %>
+        <%= university.average_score %>
     <% end %><br>
     <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %>
     <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
