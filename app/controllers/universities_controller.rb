@@ -13,13 +13,13 @@ class UniversitiesController < ApplicationController
     end
 
     def index
-        if !params[:sort].blank?
-            @universities = University.all.sort_by do |university|
-            university.average_score
-            end
-        else 
+        # if !params[:sort].blank?
+        #     @universities = University.all.sort_by do |university|
+        #     university.average_score
+        #     end
+        # else 
             @universities = University.all
-        end
+        # end
     end
 
     def show
