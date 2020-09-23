@@ -1,9 +1,12 @@
+<br/>
+<h2><%= @review.university.name %> </h2>
+
 <%= form_for @review, :url => university_reviews_url do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
-        <h2>
+        <h3>
           <%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:
-        </h2>
+        </h3>
   
         <ul>
         <% @review.errors.full_messages.each do |message| %>
