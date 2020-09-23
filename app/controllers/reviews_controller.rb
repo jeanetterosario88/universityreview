@@ -34,8 +34,8 @@ class ReviewsController < ApplicationController
   
     def update
       @review = Review.find(params[:id])
-      @review.update(params.require(:review))
-      redirect_to review_path(@review)
+      @review.update(params.require(:review).permit(:title, :content, :score))
+      redirect_to university_review_path(@review.university.id, @review.id)
     end
   
     def edit

@@ -5,6 +5,7 @@
     <h4>
     "Name": <%=  university.name %><br>
     "Zip Code": <%=  university.address %><br>
+    <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %>
     <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
     </h4>
 <% end %>

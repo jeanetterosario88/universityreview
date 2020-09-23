@@ -11,9 +11,8 @@
 <% @reviews.each do |review| %>
   <div>
     <h2><%= review.title %></h2>
-    <h3>by: <%= link_to review.university.name, university_reviews_path(review.author) %></h3>
+    <h3>by: <%= link_to review.university.name, university_reviews_path(review.user) %></h3>
     <p><%= review.content %></p>
   </div>
 <% end %>
-
 <%= link_to "Click Here to Add", new_review_path %>

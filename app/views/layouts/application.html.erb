@@ -18,7 +18,7 @@
     <% else %>
       <%= link_to "Welcome", '/' %>
       <%= current_user.username %>
-      <%= link_to "Universities",'/universities' %>
+      <%= link_to "Universities", universities_path %>
       <%= link_to "Log Out", "/sessions", method: 'delete'%>
     <% end %>
 
