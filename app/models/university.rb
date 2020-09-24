@@ -6,8 +6,7 @@ class University < ApplicationRecord
     validates :address, presence: true, length: { is: 5 } 
 
     def average_score
-        a = reviews.collect { |review| review.score }.sum.to_f / reviews.size
-        a.round
+        (reviews.collect { |review| review.score }.sum.to_f / reviews.size).round(2)
     end
 
     def self.find_university(university_name)

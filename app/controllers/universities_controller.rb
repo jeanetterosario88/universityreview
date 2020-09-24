@@ -24,6 +24,10 @@ class UniversitiesController < ApplicationController
 
     def show
         @university = University.find_by(id: params[:id])
+        if !@university
+            redirect_to universities_path
+            return
+        end
     end
 
     private

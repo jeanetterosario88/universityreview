@@ -8,7 +8,11 @@ class ReviewsController < ApplicationController
   
     def show
       if params[:university_id]
-        @review = University.find(params[:university_id]).reviews.find(params[:id])
+        @review = University.find(params[:university_id]).reviews.find_by_id(params[:id])
+        if !@review
+          redirect_to university_reviews_path(params[:university_id])
+          return
+        end
       else
         @review = Review.find(params[:id])
       end
