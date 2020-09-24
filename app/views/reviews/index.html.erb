@@ -1,11 +1,14 @@
-<h2> <%=  @reviews.first.university.name %> Reviews</h2>
+<h2> <%= @reviews.first.university.name if @reviews.first %> Reviews </h2>
+<%= link_to "Click Here to Add A New Review", new_university_review_path %>
 
 <% @reviews.each do |review| %>
   <div>
-    <h3>Title: <%= review.title %></h3>
-    <h3>by: <%= review.user.username %></h3>
-    <p>Content: <%= review.content %></p>
-    <p>Score: <%= review.score %></p>
+    <br> <b> Title: <%= review.title %></b>
+    <br>by: <%= review.user.username %>
+    <br> Content: <%= review.content %>
+    <br> Score: <%= review.score %><br>
+    <% if current_user.id == review.user_id %>
+    <%= link_to "Edit Your Review", edit_university_review_path(review.university, review) %>
+    <% end %>
   </div>
-<% end %>
-<%= link_to "Click Here to Add", new_university_review_path %>
+<% end %><p/>
