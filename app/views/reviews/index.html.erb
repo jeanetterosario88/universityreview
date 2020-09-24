@@ -1,6 +1,9 @@
 <h2> <%= @reviews.first.university.name if @reviews.first %> Reviews </h2>
 <%= link_to "Click Here to Add A New Review", new_university_review_path %>
-
+<br/>
+Review With Highest Rating: <%= @reviews.highest_rated_review.take.try(:title) %>, by <%= @reviews.highest_rated_review.take.try(:user).try(:username) %>
+<br/>
+Review With Lowest Rating: <%= @reviews.lowest_rated_review.take.try(:title) %>, by <%= @reviews.lowest_rated_review.take.try(:user).try(:username) %>
 
 <% @reviews.each do |review| %>
   <div>

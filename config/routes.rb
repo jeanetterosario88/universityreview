@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create'
 
   get '/sessions/new', to: 'sessions#new'
+  get '/sessions', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
-  delete '/sessions/', to: 'sessions#destroy'
+  delete '/sessions', to: 'sessions#destroy'
 
 
   resources :universities, only: %i[show new index create]  do

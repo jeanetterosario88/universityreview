@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
                 redirect_to '/'
             end
         else
+            flash[:error] = "We couldn't log you in. Please enter your correct username and password."
             render 'new'
         end
     end

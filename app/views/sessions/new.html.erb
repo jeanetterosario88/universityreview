@@ -1,3 +1,8 @@
+<h3><% if flash[:error] %>
+<div class="error"><%= flash[:error] %></div>
+<% end %></h3>
+
+
 <%= form_tag('/sessions', method: :post) do %>
 
     <div class="form-group">

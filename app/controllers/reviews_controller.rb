@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.by_university(params[:university_id])
+    # @highest_rated_review = @reviews.highest_rated_review.first
+    # @lowest_rated_review = @reviews.lowest_rated_review.first
   end
   
     def show
@@ -22,8 +24,11 @@ class ReviewsController < ApplicationController
   
     def create
       @review = Review.new(review_params.merge({university_id: params[:university_id], user_id: session[:user_id]}))
-      @review.save
-      redirect_to university_review_path(@review.university.id, @review.id)
+      if !@review.save
+        render 'new'
+      else
+        redirect_to university_review_path(@review.university.id, @review.id)
+      end
     end
   
     def update
