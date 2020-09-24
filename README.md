@@ -41,10 +41,10 @@ Run the following commande inside this project's directory.
 
     $ bundle install
 
-    $ rake db:migrate
+    $ rails db:migrate
 
 
-    $ rake db:seed (if applicable)
+    $ rails db:seed (if applicable)
 
 
 Start up local server
@@ -56,7 +56,7 @@ Start up local server
 For interactive console
 
 
-    $ rake console
+    $ rails console
     
 
 ## FUTURE IMPROVEMENTS
