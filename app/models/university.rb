@@ -9,6 +9,9 @@ class University < ApplicationRecord
         reviews.collect { |review| review.score }.sum.to_f / reviews.size
     end
 
+    def self.find_university(university_name)
+        where(name: university_name)
+    end
     
     # def self.by_score
     #     @universities.sort! { |a,b| a.average_score <=> b.average_score}

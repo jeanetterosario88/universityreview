@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
     def index
-      @reviews = Review.by_university(params[:university_id])
+      @reviews = Review.all
     end
   
     def show

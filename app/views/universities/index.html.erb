@@ -1,7 +1,16 @@
 <h2>University List</h3>
-
+<div>
+<h3>Filter By University:</h3>
+<div>
+<%= form_tag universities_path, method: :get do %>
+       <%= label_tag  "Search for a University by name:" %>
+       <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+</div>
 
 <% @universities.each do |university| %>
+    <div>
     <h4>
     Name: <%=  university.name %><br>
     Zip Code: <%=  university.address %><br>
@@ -13,7 +22,9 @@
     <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %> |
     <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
     </h4>
+    </div>
 <% end %>
+
 
 Don't see a University on this list?
 <%= link_to "Click Here to Add One", new_university_path %>

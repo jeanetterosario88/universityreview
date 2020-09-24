@@ -9,5 +9,5 @@ class Review < ApplicationRecord
     def self.by_university(university_id)
         where(university: university_id)
     end
-
+    
 end

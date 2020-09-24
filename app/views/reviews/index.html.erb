@@ -1,6 +1,7 @@
 <h2> <%= @reviews.first.university.name if @reviews.first %> Reviews </h2>
 <%= link_to "Click Here to Add A New Review", new_university_review_path %>
 
+
 <% @reviews.each do |review| %>
   <div>
     <br> <b> Title: <%= review.title %></b>

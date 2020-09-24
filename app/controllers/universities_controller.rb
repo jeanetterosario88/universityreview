@@ -13,13 +13,13 @@ class UniversitiesController < ApplicationController
     end
 
     def index
-        # if !params[:sort].blank?
-        #     @universities = University.all.sort_by do |university|
-        #     university.average_score
-        #     end
-        # else 
+        if params[:search]
+            searched_name = params[:search]
+            @universities = University.find_university(searched_name)
+                # .where('name LIKE ?', "%#{params[:search]}%")
+            else
             @universities = University.all
-        # end
+            end
     end
 
     def show
