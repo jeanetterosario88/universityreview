@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
 
-    def index
-      @reviews = Review.all
-    end
+  def index
+    @reviews = Review.by_university(params[:university_id])
+  end
   
     def show
       if params[:university_id]
@@ -21,15 +21,14 @@ class ReviewsController < ApplicationController
     end
   
     def create
-      puts review_params
-      @review = Review.new(review_params) 
-      @review.save!
+      @review = Review.new(review_params.merge({university_id: params[:university_id], user_id: session[:user_id]}))
+      @review.save
       redirect_to university_review_path(@review.university.id, @review.id)
     end
   
     def update
       @review = Review.find(params[:id])
-      @review.update(params.require(:review).permit(:title, :content, :score))
+      @review.update(review_params)
       redirect_to university_review_path(@review.university.id, @review.id)
     end
   
@@ -50,12 +49,7 @@ class ReviewsController < ApplicationController
     private
   
     def review_params
-      params.require(:review).permit(:title, :content, :score).merge(
-        {
-          university_id: params[:university_id], 
-          user_id: session[:user_id]
-        }
-      )
+      params.require(:review).permit(:title, :content, :score)
     end
   end
   
