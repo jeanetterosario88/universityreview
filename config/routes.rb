@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
   root 'welcome#index'
   get 'users/new', to: 'users#new'
   post 'users', to: 'users#create'
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/sessions/', to: 'sessions#destroy'
 
-  get '/auth/facebook/callback' => 'sessions#create'
 
   resources :universities, only: %i[show new index create]  do
     resources :reviews, only: %i[show index new edit update create delete]

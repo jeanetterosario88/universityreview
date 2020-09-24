@@ -12,15 +12,15 @@
   <body>
 
     <% if current_user.nil? %>
-      <%= link_to "Welcome", '/' %>
-      <%= link_to "Sign Up Here", "/users/new" %>
-      <%= link_to "Log In Here", "/sessions/new"%>
-      <%= link_to('Log in with Facebook!','/auth/facebook/callback') %>
+      <%= link_to "Welcome", '/' %> |
+      <%= link_to "Sign Up Here", "/users/new" %> |
+      <%= link_to "Log In Here", "/sessions/new"%> |
+      <%= link_to('Log in with Facebook!','/auth/facebook') %>
     <% else %>
-      <%= link_to "Welcome", '/' %>
-      <%= current_user.username %>
-      <%= link_to "Universities", universities_path %>
-      <%= link_to "Log Out", "/sessions", method: 'delete'%>
+      <%= link_to "Welcome", '/' %> |
+      <%= current_user.username %> |
+      <%= link_to "Universities", universities_path %> |
+      <%= link_to "Log Out", "/sessions", method: 'delete'%> |
     <% end %>
 
     <%= yield %>
