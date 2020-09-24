@@ -15,7 +15,7 @@ class UniversitiesController < ApplicationController
     def index
         if params[:search]
             searched_name = params[:search]
-            @universities = University.find_university(searched_name)
+            @universities = University.by_name(searched_name)
                 # .where('name LIKE ?', "%#{params[:search]}%")
             else
             @universities = University.all
