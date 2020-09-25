@@ -3,7 +3,7 @@
     <% if @university.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@university.errors.count, "error") %> prohibited this user from being saved:
+        <%= pluralize(@university.errors.count, "error") %> prohibited this university from being saved:
       </h2>
 
       <ul>
@@ -14,13 +14,14 @@
     </div>
   <% end %>
 
+
     <div class="form-group">
-      <%= f.label :name %><br>
+      <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %></div>
     </div>
 
     <div class="form-group">
-    <%= f.label "Zip Code" %><br>
+    <%= f.label "Zip Code" %>
     <%= f.text_field :address, class: "form-control" %></div>
   </div>
 

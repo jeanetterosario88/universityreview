@@ -5,7 +5,8 @@ class UniversitiesController < ApplicationController
     end
 
     def create
-        if university = University.create(university_params)
+        @university = University.new(university_params)
+        if @university.save
             redirect_to universities_path
         else
             render 'new'
