@@ -36,9 +36,9 @@ class ReviewsController < ApplicationController
     end
   
     def update
-      @review = Review.find(params[:id])
-      @review.update(review_params)
-      redirect_to university_review_path(@review.university.id, @review.id)
+      review = Review.find(params[:id])
+      review.update(review_params)
+      redirect_to university_review_path(review.university.id, review.id)
     end
   
     def edit
