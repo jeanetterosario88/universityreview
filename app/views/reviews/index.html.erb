@@ -14,6 +14,10 @@ Review With Lowest Rating: <%= @reviews.lowest_rated_review.take.try(:title) %>,
     <br> Score: <%= review.score %><br>
     <% if current_user.id == review.user_id %>
     <%= link_to "Edit Your Review", edit_university_review_path(review.university, review) %>
+  <br>
+    <%= button_to "Delete Your Review", university_review_path(review.university, review), method: :delete %>
+    
+
     <% end %>
   </div>
 <% end %><p/>

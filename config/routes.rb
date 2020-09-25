@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   resources :universities, only: %i[show new index create]  do
-    resources :reviews, only: %i[show index new edit update create delete]
+    resources :reviews, only: %i[show index new edit update create destroy]
   end
 
 
