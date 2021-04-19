@@ -11,32 +11,34 @@
 
   <body>
 
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" href="/">Welcome</a>
-        </li>
-        <li class="nav-item">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">University Review</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Welcome<span class="sr-only">(current)</span></a>
+            
             <% if current_user.nil? %>
-                <a class="nav-link" href="/users/new">Sign Up Here</a>
+                    <a class="nav-item nav-link" href="/users/new">Sign Up Here</a>
             <% else %>
                 <%= current_user.username %>
-            <% end %>                
-        </li>
-        <li class="nav-item">
+            <% end %>     
+            
             <% if current_user.nil? %>
-                <a class="nav-link" href="/sessions/new">Log In Here</a>
+                <a class="nav-item nav-link" href="/sessions/new">Log In Here</a>
             <% else %>
                 <%= link_to "Universities", universities_path %>
-            <% end %>   
-        </li>
-        <li class="nav-item">
+            <% end %>  
+
             <% if current_user.nil? %>
-                <a class="nav-link" href="/auth/facebook">Log in with Facebook!</a>
+                <a class="nav-item nav-link" href="/auth/facebook">Log in with Facebook!</a>
             <% else %>
                 <%= link_to "Log Out", "/sessions", method: 'delete'%>
-            <% end %>  
-        </li>
-    </ul>
+            <% end %> 
+        </div>
+    </nav>
 
     <%= yield %>
   </body>
