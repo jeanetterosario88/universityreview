@@ -1,11 +1,6 @@
 <h2>University List</h3>
 <div>
 
-
-
-
-
-
 <h3>Filter By University:</h3>
 <div>
 <%= form_tag universities_path, method: :get do %>
@@ -17,14 +12,15 @@
 
 <% @universities.each do |university| %>
     <div>
-    <h4>
-    Name: <%=  university.name %><br>
-    Zip Code: <%=  university.address %><br>
+    <h5> <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="card-body">
+    <h4 class="card-title"><%=  university.name %></h5> 
+    <p class="card-text">Zip Code: <%=  university.address %><br>
     <% if university.reviews.size == 0 %>
        Average Score: To Be Scored
     <% else %>
         Average Score: <%= university.average_score %>
-    <% end %><br>
+    <% end %><br></p>
     <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %> |
     <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
     </h4>
