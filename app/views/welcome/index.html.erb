@@ -1,7 +1,6 @@
 
-# <% if session[:user_id] %>
-#   <h2>Hello <%= @user.username %>!</h2>
-#   <h3>Email: <%= @user.email %></h3>
+<% if session[:user_id] %>
+  <h2>Hello <%= @user.username %>!</h2>
   <h3>Welcome Back to the University Review Forum!</h3>
 
   <br/>
@@ -9,16 +8,17 @@
 
 <% @universities.each do |university| %>
     <h4>
-    Name: <%=  university.name %><br>
-    Zip Code: <%=  university.address %><br>
+    <div class="card-body">
+    <h4 class="card-name">Name: <%=  university.name %></h4> 
+    <p class="card-address">Zip Code: <%=  university.address %><br>
     Score: 
     <% if university.reviews.size == 0 %>
         To Be Scored
     <% else %>
         <%= university.average_score %>
     <% end %><br>
-    <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %>
-    <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %>
+    <%= link_to "Click Here to See All Reviews", university_reviews_path(university.id) %> ||
+    <%= link_to "Click Here to Add A Review", new_university_review_path(university.id) %></p>
     </h4>
 <% end %>
 
